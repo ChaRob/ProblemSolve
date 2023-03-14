@@ -1,5 +1,7 @@
 from heapq import *
 from collections import deque
+import sys
+input=sys.stdin.readline
 n,m=map(int,input().split())
 edges=[]
 for _ in range(m):
