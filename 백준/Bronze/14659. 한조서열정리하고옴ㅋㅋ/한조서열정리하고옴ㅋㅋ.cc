@@ -6,14 +6,13 @@ int main() {
 	ios_base::sync_with_stdio(false);
 	int n, attacked = 0, max_attack = 0, highest = 0;
 	cin >> n;
-	int* mountain = new int[n+1];
-	mountain[0] = 0;
+	int mountain = 0;
 	for (int i = 1; i <= n; i++)
 	{
-		cin >> mountain[i];
-		highest = (highest > mountain[i]) ? highest : mountain[i];
+		cin >> mountain;
+		highest = (highest > mountain) ? highest : mountain;
 
-		if (highest > mountain[i]) {
+		if (highest > mountain) {
 			attacked++;
 			max_attack = (max_attack > attacked) ? max_attack : attacked;
 		}
@@ -22,6 +21,5 @@ int main() {
 		}
 	}
 	cout << max_attack;
-	delete[] mountain;
 	return 0;
 }
