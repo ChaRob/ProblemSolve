@@ -10,7 +10,6 @@ int main()
 	cin >> T;
 	for (int t = 0; t < T; t++)
 	{
-		//float cnt = 0, p;
 		bool check = true;
 		string input, output;
 		cin >> input >> output;
@@ -21,7 +20,6 @@ int main()
 				break;
 			}
 		}
-		//p = cnt / input.size();
 		if (check && input.size() == output.size()) cout << "OK\n";
 		else cout << "ERROR\n";
 	}
