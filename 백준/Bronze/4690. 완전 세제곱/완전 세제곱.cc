@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 int main()
@@ -14,7 +13,7 @@ int main()
 			{
 				for (int d = c; d < a; d++)
 				{
-					if (pow(a, 3) == pow(b, 3) + pow(c, 3) + pow(d, 3))
+					if (a*a*a == b*b*b + c*c*c + d*d*d)
 						cout << "Cube = " << a << ", Triple = (" << b << "," << c << "," << d << ")\n";
 				}
 			}
