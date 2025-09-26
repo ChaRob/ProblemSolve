@@ -16,7 +16,7 @@ int main()
 		{
 			factorial *= i;
 			while (factorial % 10 == 0) factorial /= 10;
-			factorial %= 10000;
+			factorial %= 1000;
 		}
 		cout << factorial % 10 << "\n";
 	}
