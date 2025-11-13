@@ -6,7 +6,7 @@ using namespace std;
 
 int dp[10][1024];
 
-int Search(const vector<string>& classroom, const vector<vector<int>>& rowMasks, int& n, int& m, int nowRow, int lastMask)
+int Search(const vector<vector<int>>& rowMasks, int& n, int& m, int nowRow, int lastMask)
 {
 	if (nowRow == n) return 0;
 	if (dp[nowRow][lastMask] != -1) return dp[nowRow][lastMask];
@@ -20,7 +20,7 @@ int Search(const vector<string>& classroom, const vector<vector<int>>& rowMasks,
 		bool check = true;
 		if (nowRow > 0)
 		{
-			for (int col = 0; col < m; col++)
+			/*for (int col = 0; col < m; col++)
 			{
 				if (mask & (1 << col))
 				{
@@ -31,7 +31,9 @@ int Search(const vector<string>& classroom, const vector<vector<int>>& rowMasks,
 						break;
 					}
 				}
-			}
+			}*/
+			if ((mask & (lastMask << 1)) != 0) check = false;
+			if ((mask & (lastMask >> 1)) != 0) check = false;
 		}
 
 		if (check)
@@ -41,7 +43,7 @@ int Search(const vector<string>& classroom, const vector<vector<int>>& rowMasks,
 			{
 				if (mask & (1 << col)) tmp++;
 			}
-			cnt = Search(classroom, rowMasks, n, m, nowRow + 1, mask) + tmp;
+			cnt = Search(rowMasks, n, m, nowRow + 1, mask) + tmp;
 			maxCnt = (maxCnt > cnt) ? maxCnt : cnt;
 		}
 	}
@@ -84,7 +86,7 @@ int main()
 			}
 			rowMasks[i] = mask;
 		}
-		cout << Search(classroom, rowMasks, n, m, 0, 0) << "\n";
+		cout << Search(rowMasks, n, m, 0, 0) << "\n";
 	}
 	return 0;
 }
