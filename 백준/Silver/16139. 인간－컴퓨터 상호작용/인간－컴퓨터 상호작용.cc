@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-int cnt[26][2000];
+int cnt[26][200000];
 
 int main()
 {
