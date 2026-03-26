@@ -1,29 +1,21 @@
 #include <iostream>
-#include <map>
+#include <unordered_map>
 using namespace std;
 
 int main() {
 	cin.tie(NULL);
 	ios_base::sync_with_stdio(false);
-	int n;
+	int n, appear = 0;
 	cin >> n;
-	map<int, int> count;
+	unordered_map<int, int> count;
 	for (int i = 0; i < n; i++)
 	{
 		int val;
 		cin >> val;
 		while (val % 2 == 0) val /= 2;
-		auto it = count.find(val);
-		if (it != count.end())
-			it->second++;
-		else
-			count[val] = 1;
-	}
-	int appear = 0;
-	for (auto [key, cnt] : count)
-	{
-		if (cnt > appear)
-			appear = cnt;
+		count[val]++;
+		if (count[val] > appear)
+			appear = count[val];
 	}
 	cout << appear;
 	return 0;
