@@ -6,12 +6,9 @@ using namespace std;
 
 int solution(string binomial) {
     int answer = 0, a, b;
+    string cal;
     istringstream iss(binomial);
-    string cal, tmp;
-    iss >> tmp;
-    a = stoi(tmp);
-    iss >> cal >> tmp;
-    b = stoi(tmp);
+    iss >> a >> cal >> b;
     if (cal == "+")
         answer = a + b;
     else if (cal == "-")
